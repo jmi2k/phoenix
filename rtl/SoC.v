@@ -1,4 +1,5 @@
 `include "Uart.v"
+`include "Vga.v"
 
 module SoC(
 	input
@@ -21,6 +22,10 @@ module SoC(
 		.OE(ready),
 		.RDY(ready),
 		.TX
+	);
+
+	Vga vga(
+		.CLK
 	);
 
 	initial
