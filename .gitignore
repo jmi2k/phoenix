@@ -1,0 +1,6 @@
+*.bit
+*.hex
+rtl/*.config
+rtl/*.json
+test/*.vcd
+test/*.vvp
