@@ -4,8 +4,8 @@
 module Test;
 
 	localparam
-		T     = 1e9 / `FCLK,
-		Tbaud = 1e9 / 9_600;
+		T      = 1e9 / `FCLK,
+		Tframe = 1e9 / 60;
 
 	reg
 		CLK = 0;
@@ -22,7 +22,7 @@ module Test;
 		$dumpfile(`DUMP);
 		$dumpvars;
 
-		#(50*Tbaud) $finish;
+		#(Tframe+10) $finish;
 	end
 
 	always

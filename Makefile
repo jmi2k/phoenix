@@ -18,7 +18,15 @@ serial:
 wave: test/$(TEST).vcd
 	gtkwave $<
 
-rtl/SoC.v: hello.hex rtl/Uart.v rtl/Vga.v
+rtl/SoC.v: \
+	EVA.hex \
+	hello.hex \
+	term.hex \
+	vga.0000-007F.hex \
+	rtl/Delay.v \
+	rtl/Uart.v \
+	rtl/Vga.v
+
 rtl/Uart.v: rtl/Uart/Tx.v
 test/SoC.v: rtl/SoC.v
 
