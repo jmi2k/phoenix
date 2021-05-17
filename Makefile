@@ -42,6 +42,9 @@ test/SoC.v: rtl/SoC.v
 test/%.vvp: test/%.v
 	iverilog -Irtl -D 'DUMP="test/$*.vcd"' -D 'FCLK=$(FCLK)' -o $@ $<
 
+%.hex: %.png
+	./png2hex.py $< > $@
+
 %.hex: %.txt
 	printf '\0' | cat $< - | od -v -A n -t x1 > $@
 
