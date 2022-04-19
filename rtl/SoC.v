@@ -1,4 +1,5 @@
 `include "Delay.v"
+`include "FemtoRv32.v"
 `include "Uart.v"
 `include "Vga.v"
 `include "VideoTerm.v"
@@ -81,6 +82,12 @@ module SoC(
 		CLK,
 		{hb0, vb0, hs0_, vs0_},
 		{hb,  vb,  HS_,  VS_}
+	);
+
+	FemtoRv32 cpu (
+		.CLK,
+		.RST(0),
+		.IRQ(0)
 	);
 
 	initial begin
